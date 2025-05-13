@@ -52,7 +52,7 @@ function App() {
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="text">Text</label>
 				<input type="text" id="text" name="text" />
-				<button type="submit">Ajouter</button>
+				<button type="submit">Ajouter 🎉</button>
 			</form>
 		</section>
 	);
