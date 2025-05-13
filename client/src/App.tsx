@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 function App() {
 	const [items, setItems] = useState<{ title: string }[]>([]);
+	const apiBase = import.meta.env.VITE_API_URL || "";
 
-	console.log(import.meta.env.VITE_API_URL);
+	console.log(apiBase);
 
 	useEffect(() => {
-		fetch(import.meta.env.VITE_API_URL + "/api/items")
+		fetch(apiBase + "/api/items")
 			.then((response) => response.json())
 			.then((data) => setItems(data))
 			.catch((error) => {
@@ -18,7 +19,7 @@ function App() {
 		const formData = new FormData(event.currentTarget);
 		const text = formData.get("text") as string;
 		if (text) {
-			fetch(import.meta.env.VITE_API_URL + "/api/items", {
+			fetch(apiBase + "/api/items", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
