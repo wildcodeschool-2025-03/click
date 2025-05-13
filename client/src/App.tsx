@@ -5,11 +5,9 @@ function App() {
 	console.log(import.meta.env.VITE_API_URL);
 
 	useEffect(() => {
-		fetch("/api/items")
+		fetch(import.meta.env.VITE_API_URL + "/api/items")
 			.then((response) => response.json())
-			.then((data) => {
-				setItems(data);
-			})
+			.then((data) => setItems(data))
 			.catch((error) => {
 				console.error("Error fetching items:", error);
 			});
@@ -34,7 +32,6 @@ function App() {
 				.catch((error) => {
 					console.error("Error adding item:", error);
 				});
-
 			event.currentTarget.reset();
 		}
 	};
